@@ -264,12 +264,14 @@ const getDataLocation = () => {
       }
     }
     if (submit_count === 10) {
-      const full_data = JSON.parse(localStorage.getItem("employeeData"));
-      full_data["details"].push(new_data_obj);
-      localStorage.setItem("employeeData", JSON.stringify(full_data));
-      main_table.appendChild(table_row);
-      clearInput()
-      modal_box_add.style.display = "none";
+        const full_data = JSON.parse(localStorage.getItem("employeeData"));
+        full_data["details"].push(new_data_obj);
+        localStorage.setItem("employeeData", JSON.stringify(full_data));
+        main_table.appendChild(table_row);
+        clearInput()
+        employee_id.value++
+        localStorage.setItem("idOfEmployee",JSON.stringify(employee_id.value));
+        modal_box_add.style.display = "none";
     }
     
   }
