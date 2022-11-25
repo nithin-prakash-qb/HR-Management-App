@@ -535,7 +535,59 @@ const getDataLocation = () => {
     
   }
   
-
+  const sortName = (array) => {
+    return array.sort(function (a, b) {
+      let firstTest = a.name.toUpperCase();
+      let secondText = b.name.toUpperCase();
+      return firstTest < secondText ? -1 : firstTest > secondText ? 1 : 0;
+    });
+  };
+  
+  const sort_employee_id = (array) => {
+    return array.sort(function (a, b) {
+      let x = a.employee_id;
+      let y = b.employee_id;
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
+  };
+  
+  // Sorting value
+  let getSortValue = () => {
+    if (
+      sort_label.options[sort_label.selectedIndex].innerHTML === "Employee ID"
+    ) {
+      const full_data = JSON.parse(localStorage.getItem("employeeData"));
+      sort_employee_id(full_data.details);
+      localStorage.setItem("employeeData", JSON.stringify(full_data));
+      addInitialData("employeeData");
+    } else if (
+      sort_label.options[sort_label.selectedIndex].innerHTML === "Name"
+    ) {
+      const full_data = JSON.parse(localStorage.getItem("employeeData"));
+      sortName(full_data.details);
+      localStorage.setItem("employeeData", JSON.stringify(full_data));
+      addInitialData("employeeData");
+    }
+  };
+  getSortValue();
+  
+  
+  //Filtering
+  let filter_search = document.getElementById("filter_search");
+  filter_search.addEventListener("keyup", function (event) {
+    let tableRow = document.querySelectorAll(".tableRow");
+    let word = event.target.value.toLowerCase();
+    tableRow.forEach((element) => {
+      let skillArray = element.querySelectorAll(".skill_td p button ");
+      let isAvailable = false;
+      skillArray.forEach((x) => {
+        x.innerHTML.toLowerCase().startsWith(word) && (isAvailable = true);
+        isAvailable
+          ? (element.style.display = "")
+          : (element.style.display = "none");
+      });
+    });
+  });
   
   //getting of an array of all the skills rom JSON
   function get_all_skill(boolCondition){
