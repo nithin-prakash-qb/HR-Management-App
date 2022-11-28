@@ -1,4 +1,4 @@
-// localStorage.clear();
+//localStorage.clear();
 const getDataLocation = () => {
     fetch("JSON/employee.json")
       .then((res) => {
@@ -684,4 +684,3 @@ const getDataLocation = () => {
   }
   
   // const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
-  
