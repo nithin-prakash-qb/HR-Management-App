@@ -28,13 +28,9 @@ p{
     padding-bottom: 50px;
 }
 #sort_filter{
-    /* background-color: #357266; */
     display: flex;
     justify-content: space-between;
     width: 45%;
-    /* padding: 18px 18px ; */
-    /* border-radius: 8px; */
-    /* font-size: 1.2em; */
     color:whitesmoke ;
 }
 #s_f_div1 label,#s_f_div2 label{
@@ -43,9 +39,7 @@ p{
 #s_f_div2 {
     margin-top: 2.5px;
 }
-/* #s_f_div1 select,#s_f_div2 select{
-    font-size: .9em;
-} */
+
 #sort_label,#filter_search{
     border-radius: 4px;
     width: 200px;
@@ -60,6 +54,7 @@ p{
 #filter_search{
     height: 15px;
     font-size: 13px;
+    margin-top: 1px;
 }
 #filter_search::placeholder{
     color: #fff;
@@ -217,7 +212,7 @@ td{
     padding: 0px;
 }
 input[type="text"],input[type="email"],input[type="date"]{
-    width: 98%;
+    width: 97%;
     border: none;
     padding: 13px 0px 16px 15px;
     font-size: 16px;
@@ -249,14 +244,17 @@ input[type="text"],input[type="email"],input[type="date"]{
     margin: 0 auto;
 }
 #submit_btn_div button,#edit_btn_div button{
-    background-color: #214E34;
     color: whitesmoke;
     border: none;
     padding: 12px;
-    /* border-radius: 17px; */
     border-radius: 5px;
 }
-
+#edit_close,#add_close{
+    background-color: dimgrey;
+}
+#submit_btn,#edit_btn{
+    background-color: #214E34;
+}
 .span_data{
     border: 1px solid black;
 }
@@ -266,7 +264,6 @@ input[type="text"],input[type="email"],input[type="date"]{
 #modal_box_delete{
     padding-top: 160px;
     background-color: rgba(0,0,0,0.72); 
-    /* transform: translateY(10%); */
 }
 #delete_msg_div{
     background-color:rgb(151,189,98);  
