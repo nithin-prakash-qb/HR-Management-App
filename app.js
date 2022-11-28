@@ -555,14 +555,14 @@ const getDataLocation = () => {
   // Sorting value
   let getSortValue = () => {
     if (
-      sort_label.options[sort_label.selectedIndex].innerHTML === "Employee ID"
+      sort_label.options[sort_label.selectedIndex].innerHTML === "Sort By Employee ID"
     ) {
       const full_data = JSON.parse(localStorage.getItem("employeeData"));
       sort_employee_id(full_data.details);
       localStorage.setItem("employeeData", JSON.stringify(full_data));
       addInitialData("employeeData");
     } else if (
-      sort_label.options[sort_label.selectedIndex].innerHTML === "Name"
+      sort_label.options[sort_label.selectedIndex].innerHTML === "Sort By Employee Name"
     ) {
       const full_data = JSON.parse(localStorage.getItem("employeeData"));
       sortName(full_data.details);
