@@ -162,7 +162,7 @@ const getDataLocation = () => {
     // adding data to table when user fills data
   
     let submit_count = 0;
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= 10; i++) {
       let table_data = document.createElement("td");
       if (i === 1) {
         table_data.setAttribute('class',"right-align")
@@ -238,35 +238,35 @@ const getDataLocation = () => {
         new_data_obj["DOB"] = DOB.value;
         submit_count++;
       } 
-      else if (i === 7) {
-        if(age.value===""){
+      // else if (i === 7) {
+      //   if(age.value===""){
           
-        }else if(new_data_obj["Age"] = age.value){
-          submit_count++;
-        }
-        // new_data_obj["Age"] = getAge(DOB.value)
-      } 
-      else if (i === 9) {
+      //   }else if(new_data_obj["Age"] = age.value){
+      //     submit_count++;
+      //   }
+      //   // new_data_obj["Age"] = getAge(DOB.value)
+      // } 
+      else if (i === 7) {
         new_data_obj["experiance"] = experiance.value;
         submit_count++;
-      } else if (i === 10) {
+      } else if (i === 8) {
         if(designation.value!==''){
           new_data_obj["designation"] = designation.value;
           submit_count++;
         } 
-      }else if (i === 11) {
+      }else if (i === 9) {
         if(location_detail.value!==""){
           new_data_obj["contact_details"] = location_detail.value;
           submit_count++;
         }
-      } else if (i === 12) {
+      } else if (i === 10) {
         if(DOJ.value!==""){
           new_data_obj["DOJ"] = DOJ.value;
           submit_count++;
         }
       }
     }
-    if (submit_count === 10) {
+    if (submit_count === 9) {
         const full_data = JSON.parse(localStorage.getItem("employeeData"));
         full_data["details"].push(new_data_obj);
         localStorage.setItem("employeeData", JSON.stringify(full_data));
@@ -336,7 +336,9 @@ const getDataLocation = () => {
         employee_id_v.value = element.employee_id 
         name_v.value = element.name;
         DOB_v.value = element["DOB"];
-        age_v.value = element.Age;
+        // age_v.value = element.Age;
+        age_v.value = getAge(element["DOB"]);
+        console.log(age_v.value)
         email_v.value = element.email_id;
         experiance_v.value = element.experiance;
         DOJ_v.value=element.DOJ
@@ -363,11 +365,7 @@ const getDataLocation = () => {
           skillButton.innerHTML = `${element}`;
           table_data_new.appendChild(skillButton);
           outer_skill_div_v .appendChild(table_data_new);
-        })
-          
-        
-        
-        
+        })  
       }
     });
   }
@@ -616,7 +614,6 @@ const getDataLocation = () => {
   function clearInput(){
       name.value= ''
       DOB.value= ''
-      age.value = ''
       email.value = ''
       experiance.value = ''
       DOJ.value = ''
@@ -687,5 +684,22 @@ const getDataLocation = () => {
     })
   }
 
-  
-  // const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
+  // Function to calculate age from DOB
+  const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
+
+  // Function to calculate todays date
+  const todayDate = new Date().toISOString().slice(0, 10);
+  document.getElementById("DOJ").setAttribute("max",todayDate)
+
+// Closing of the modal When the user clicks anywhere outside of the modal
+  window.onclick = function(event) {
+    if (event.target == modal_box_add) {
+      add_modal_close()
+    }else if(event.target===modal_box_edit){
+      modal_edit_close()
+    }else if(event.target===modal_box_delete){
+      modal_confirmation_close()
+    }else if(event.target===modal_box_view ){
+      modal_view_close()
+    }
+  }

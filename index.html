@@ -56,10 +56,10 @@
               <td class="col_1"><label for="DOB">Date Of Birth :</label></td>
               <td class="col_2"><input type="date" id="DOB" min="1930-01-01"max="2003-01-01"></td>
           </tr>
-          <tr>
+          <!-- <tr>
               <td class="col_1"><label for="age">Age :</label> </td>
               <td class="col_2"><input type="text" id="age" name="" ></td>
-          </tr>
+          </tr> -->
           <tr>
               <td class="col_1"><label for="email">Email ID :</label></td>
               <td class="col_2"><input type="email" id="email" name="" ></td>
@@ -70,11 +70,22 @@
           </tr>
           <tr>
               <td class="col_1"><label for="DOJ">Date of Joining :</label</td>
-              <td class="col_2"><input type="date" id="DOJ"  max="2022-11-28"></td>
+              <td class="col_2"><input type="date" id="DOJ"  min="1950-01-01"></td>
           </tr>
           <tr>
               <td class="col_1"><label for="designation">Designation :</label></td>
-              <td class="col_2"><input type="text" id="designation" name=""></td>
+              <td class="col_2"><input type="text" id="designation" list="designation_list"  name=""></td>
+              <datalist id="designation_list">
+                <option value="Trainee">
+                <option value="Engineer">
+                <option value="Senior Engineer">
+                <option value="Lead Engineer">
+                <option value="Associate Architect">
+                <option value="Architect">
+                <option value="Senior Architect">
+                <option value="Associate Director">
+                <option value="Director">
+              </datalist>
           </tr>
           <tr class="common_skill_row">
             <td class="col_1"><label for="skills">Skills :</label></td>

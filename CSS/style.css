@@ -235,7 +235,7 @@ td {
 input[type="text"],
 input[type="email"],
 input[type="date"] {
-  width: 97%;
+  width: 96%;
   border: none;
   padding: 13px 0px 16px 15px;
   font-size: 16px;
