@@ -6,6 +6,8 @@ const getDataLocation = () => {
       })
       .then((data) => {
         localStorage.setItem("employeeData", JSON.stringify(data));
+        let idOfEmployee=106
+        localStorage.setItem("idOfEmployee",JSON.stringify(idOfEmployee));
         window.location.reload()
       });
   };
@@ -35,8 +37,7 @@ const getDataLocation = () => {
   let designation_v = document.getElementById("designation_v");
   let skills_v = document.getElementById("skills_v");
   let location_detail_v = document.getElementById("location_detail_v");
-  let idOfEmployee=106
-  localStorage.setItem("idOfEmployee",JSON.stringify(idOfEmployee));
+  
   
   
   // Creating table and adding the initial data
@@ -157,6 +158,7 @@ const getDataLocation = () => {
   function addingData() {
     let new_data_obj = {};
     let table_row = document.createElement("tr");
+    table_row.setAttribute("class", "tableRow");
     // adding data to table when user fills data
   
     let submit_count = 0;
@@ -235,14 +237,16 @@ const getDataLocation = () => {
       } else if (i === 6) {
         new_data_obj["DOB"] = DOB.value;
         submit_count++;
-      } else if (i === 7) {
+      } 
+      else if (i === 7) {
         if(age.value===""){
           
         }else if(new_data_obj["Age"] = age.value){
           submit_count++;
         }
         // new_data_obj["Age"] = getAge(DOB.value)
-      } else if (i === 9) {
+      } 
+      else if (i === 9) {
         new_data_obj["experiance"] = experiance.value;
         submit_count++;
       } else if (i === 10) {
@@ -682,5 +686,6 @@ const getDataLocation = () => {
         }
     })
   }
+
   
   // const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
